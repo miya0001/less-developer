@@ -17,7 +17,8 @@ class LessDeveloper {
 function __construct()
 {
     add_filter('style_loader_tag', array(&$this, 'style_loader_tag'), 5, 2);
-    add_filter('wp_enqueue_scripts', array(&$this, 'wp_enqueue_scripts'));
+    add_action('wp_enqueue_scripts', array(&$this, 'wp_enqueue_scripts'));
+    add_action('admin_enqueue_scripts', array(&$this, 'wp_enqueue_scripts'));
 }
 
 public function style_loader_tag($tag, $handler)
